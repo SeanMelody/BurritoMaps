@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 5050;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Syncing our sequelize models and then starting our Express app
+// db.sequelize.sync({ force: true }).then(() => {
+//     app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
+// });
+
 // Let the user know the server is running, and which port.  Yeay!
 app.listen(PORT, () => {
     console.log(`listening at http://localhost:${PORT}`);
