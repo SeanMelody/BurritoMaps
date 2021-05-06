@@ -1,0 +1,25 @@
+{
+  "name": "BurritoMaps",
+  "version": "1.0.0",
+  "description": "Map your favorite Burritos",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanMelody/BurritoMaps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeanMelody/BurritoMaps/issues"
+  },
+  "homepage": "https://github.com/SeanMelody/BurritoMaps#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
