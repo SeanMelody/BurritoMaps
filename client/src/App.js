@@ -8,8 +8,16 @@ import Home from "./Pages/Home"
 
 function App() {
 
+  const checkLoggedIn = () => {
+    let token = localStorage.getItem("auth-token")
+    if (token === null) {
+      localStorage.setItem("auth-token", "")
+    }
+  }
+
+
   useEffect(() => {
-    console.log("hello")
+    checkLoggedIn()
   }, [])
 
   return (
