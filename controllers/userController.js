@@ -4,7 +4,10 @@ const bcrypt = require("bcryptjs")
 
 module.exports = {
     users: (req, res) => {
-        res.send("Users will go here")
+        User.find({})
+            .then((user) => {
+                res.json(user)
+            })
     },
     register: async (req, res) => {
 
