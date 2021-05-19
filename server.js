@@ -37,9 +37,9 @@ if (process.env.NODE_ENV == "production") {
 
 app.use("/users", require("./routes/userRoutes"))
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+// })
 
 // Let the user know the server is running, and which port.  Yeay!
 app.listen(PORT, () => {

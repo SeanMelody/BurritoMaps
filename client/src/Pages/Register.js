@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import axios from "axios"
+import React, { useState } from 'react';
+import axios from "axios";
 
 export const Register = () => {
 
@@ -9,9 +9,16 @@ export const Register = () => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault()
-        console.log(form)
+        // console.log(form)
+
+        try {
+            const newUser = await axios.post("/users/register", form);
+            console.log(newUser)
+        } catch (err) {
+            console.log(err.response)
+        }
     }
 
 
@@ -25,10 +32,10 @@ export const Register = () => {
                 <input onChange={onChange} type="text" name="password" className="row col-md-12"></input>
 
                 <h3 className="col-md-12">Password Check:</h3>
-                <input onChange={onChange} type="text" name="password" className="row col-md-12"></input>
+                <input onChange={onChange} type="text" name="passwordCheck" className="row col-md-12"></input>
 
                 <h3 className="col-md-12">Display Name:</h3>
-                <input onChange={onChange} type="text" name="password" className="row col-md-12"></input>
+                <input onChange={onChange} type="text" name="displayName" className="row col-md-12"></input>
 
                 <input type="submit" className="btn btn-secondary margin10" />
             </form>
