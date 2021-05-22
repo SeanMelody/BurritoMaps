@@ -30,15 +30,17 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+
       <h1>Burrito Maps!</h1>
       <Router>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/" component={Home} />
-        </Switch>
-
+        <UserContext.Provider value={{ userData, setUserData }} >
+          <Nav />
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </UserContext.Provider>
       </Router>
     </div>
   );
