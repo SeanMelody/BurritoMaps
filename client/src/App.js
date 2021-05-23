@@ -21,6 +21,9 @@ function App() {
     if (token === null) {
       localStorage.setItem("auth-token", "")
     }
+    // else {
+    //   setUserData
+    // }
   }
 
 

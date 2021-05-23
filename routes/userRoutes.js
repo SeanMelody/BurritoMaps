@@ -1,14 +1,17 @@
 const router = require("express").Router();
 const { users } = require("../controllers/userController")
-const { register, login } = require("../controllers/userController")
+const { register, login, getUser } = require("../controllers/userController")
 
 // Test route unused later
 router.get("/test", (req, res) => {
     res.send("test route")
 })
 
-// Base route using "users" path from server.js, and the test from userController
-router.get("/", users)
+// list route using "users" path from server.js, and the test from userController
+router.get("/list", users)
+
+// Authentication to make sure that user is authorized
+router.get("/", auth, getUser)
 
 // users/register as a post request to register a new user
 
