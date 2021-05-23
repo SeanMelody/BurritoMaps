@@ -34,6 +34,11 @@ function App() {
     }
   }
 
+  const logout = () => {
+    setUserData({ token: undefined, user: undefined })
+    localStorage.setItem("auth-token", "")
+  }
+
 
   useEffect(() => {
     checkLoggedIn()
@@ -49,7 +54,9 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/" component={Home} />
+            <Route path="/">
+              <Home logout={logout} />
+            </Route>
           </Switch>
         </UserContext.Provider>
       </Router>
