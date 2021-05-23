@@ -6,6 +6,7 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import Home from "./Pages/Home"
 import UserContext from "./Context/UserContext"
+import axios from 'axios';
 
 function App() {
 
@@ -16,14 +17,21 @@ function App() {
 
 
 
-  const checkLoggedIn = () => {
+  const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token")
     if (token === null) {
       localStorage.setItem("auth-token", "")
     }
-    // else {
-    //   setUserData
-    // }
+    else {
+      const userRes = await axios.get("/users", {
+        headers: { "x-auth-token": token },
+      })
+
+      console.log("User", userRes)
+
+
+      setUserData({ token, user: userRes.data })
+    }
   }
 
 

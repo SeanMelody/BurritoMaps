@@ -38,9 +38,9 @@ const Login = () => {
     }
 
     useEffect(() => {
-        console.log(userData)
-
-    }, [])
+        // console.log(userData)
+        if (userData.user) history.push("/")
+    }, [userData.user, history])
 
 
     return (
