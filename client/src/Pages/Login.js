@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import userContext from "../Context/UserContext"
+import { useHistory } from "react-router-dom"
 import axios from "axios"
 
 // AT 2 hours 1 min in for VIDEO
@@ -6,6 +8,10 @@ import axios from "axios"
 const Login = () => {
 
     const [form, setForm] = useState()
+
+    const { userData, setUserData } = useContext(userContext)
+
+    const history = useHistory()
 
     const onChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -15,12 +21,27 @@ const Login = () => {
         e.preventDefault()
         console.log("submitted")
         try {
-            const loginResult = await axios.post("/users/login", form)
-            console.log(loginResult)
+            const { data } = await axios.post("/users/login", form)
+            console.log(data)
+
+            setUserData({
+                token: data.token,
+                user: data.user
+            })
+
+            localStorage.setItem("auth-token", data.token)
+            history.push("/")
+
         } catch (err) {
             console.log(err.response)
         }
     }
+
+    useEffect(() => {
+        console.log(userData)
+
+    }, [])
+
 
     return (
         <div className="container">
