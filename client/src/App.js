@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Nav from "./Components/Nav"
+// import Nav from "./Components/Nav"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import Home from "./Pages/Home"
@@ -14,7 +14,6 @@ function App() {
     user: undefined,
     token: undefined
   })
-
 
 
   const checkLoggedIn = async () => {
@@ -44,6 +43,14 @@ function App() {
     checkLoggedIn()
   }, [])
 
+  let loginLogoutStyles = {
+    height: "30px",
+    float: "around",
+    textDecoration: "none",
+    fontSize: "24px",
+    margin: "10px",
+  }
+
   return (
     <div className="App">
 
@@ -54,10 +61,20 @@ function App() {
             <Link to="/login">Login </Link>
             <Link to="/register">Register</Link>
           </>
-          : <Link to="/" onClick={logout}>Logout </Link>}
+
+          : <>
+            <nav className="navbar">
+              <h1>Burrito Maps</h1>
+              <Link to="/" onClick={logout} style={loginLogoutStyles}>
+                <button className="btn btn-outline-primary">
+                  Logout
+                </button>
+              </Link>
+            </nav>
+          </>
+        }
         <UserContext.Provider value={{ userData, setUserData }} >
           {/* <Nav /> */}
-          <h1>Burrito Maps!</h1>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
