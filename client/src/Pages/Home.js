@@ -18,18 +18,14 @@ export const Home = (props) => {
 
         userData.user
             ? console.log(userData.user.displayName)
-            : console.log("not here")
+            : console.log("Not here yet")
+
     }, [userData.user, history])
 
     return (
         <div>
             <h1> hi from home</h1>
-            <h3> Welcome: {" "}
-                {userData.user
-                    ? (userData.user.displayName)
-                    : null}
-            </h3>
-            <button onClick={props.logout} className="btn btn-danger margin10">Logout</button>
+            <h3> Welcome: {userData.user?.displayName}</h3>
         </div>
     )
 }
