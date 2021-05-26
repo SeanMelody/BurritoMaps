@@ -2,7 +2,7 @@ const router = require("express").Router();
 const auth = require("../middleware/auth")
 const { newBurrito, getUserBurritos } = require("../controllers/burritoController")
 
-// Post all the burritos
+// Post new burritos
 router.post("/", auth, newBurrito)
 
 // Get all the burritos!
