@@ -32,5 +32,20 @@ module.exports = {
             console.log(err)
             res.send("Can not get burritos", err)
         }
-    }
+    },
+
+    // Get All Burritos!
+    getAllBurritos: (req, res) => {
+
+        try {
+            Burrito.find({})
+                .then((all) => {
+                    res.json(all)
+                })
+        }
+        catch (err) {
+            console.log("Not able to get all burritos", err)
+        }
+    },
+
 }
