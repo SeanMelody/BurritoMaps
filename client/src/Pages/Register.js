@@ -29,10 +29,10 @@ export const Register = () => {
                 <input onChange={onChange} type="text" name="email" className="row col-md-12"></input>
 
                 <h3 className="col-md-12">Password:</h3>
-                <input onChange={onChange} type="text" name="password" className="row col-md-12"></input>
+                <input onChange={onChange} type="password" name="password" className="row col-md-12"></input>
 
                 <h3 className="col-md-12">Password Check:</h3>
-                <input onChange={onChange} type="text" name="passwordCheck" className="row col-md-12"></input>
+                <input onChange={onChange} type="password" name="passwordCheck" className="row col-md-12"></input>
 
                 <h3 className="col-md-12">Display Name:</h3>
                 <input onChange={onChange} type="text" name="displayName" className="row col-md-12"></input>

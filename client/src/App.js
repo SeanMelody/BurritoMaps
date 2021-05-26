@@ -58,15 +58,26 @@ function App() {
       <Router>
         {!userData.user ?
           <>
-            <Link to="/login">Login </Link>
-            <Link to="/register">Register</Link>
+            <nav className="navbar">
+              <h1>Burrito Maps</h1>
+              <Link to="/login" style={loginLogoutStyles}>
+                <button className="btn btn-outline-primary">
+                  Login
+                </button>
+              </Link>
+              <Link to="/register" style={loginLogoutStyles}>
+                <button className="btn btn-outline-primary">
+                  Register
+                </button>
+              </Link>
+            </nav>
           </>
 
           : <>
             <nav className="navbar">
               <h1>Burrito Maps</h1>
               <Link to="/" onClick={logout} style={loginLogoutStyles}>
-                <button className="btn btn-outline-primary">
+                <button className="btn btn-outline-danger">
                   Logout
                 </button>
               </Link>
