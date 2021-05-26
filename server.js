@@ -36,6 +36,8 @@ if (process.env.NODE_ENV == "production") {
 }
 
 app.use("/users", require("./routes/userRoutes"))
+app.use("/burritos", require("./routes/burritoRoutes"))
+
 
 // app.get("*", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
