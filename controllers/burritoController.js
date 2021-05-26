@@ -17,8 +17,20 @@ module.exports = {
         } catch (err) {
             res.send("error saving new Burrito: ", err)
         }
-
-
         // res.send("success from controller")
+    },
+
+    getUserBurritos: async (req, res) => {
+        console.log("getuserBurritos")
+
+        try {
+
+            const allBurritos = await Burrito.find({ authorId: req.user })
+            console.log(allBurritos)
+
+        } catch (err) {
+            console.log(err)
+            res.send("Can not get burritos", err)
+        }
     }
 }
