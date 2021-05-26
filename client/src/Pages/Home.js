@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import userContext from "../Context/UserContext"
+import BurritoContainer from "../Components/BurritoContainer"
 
 
 export const Home = (props) => {
@@ -26,6 +27,7 @@ export const Home = (props) => {
         <div>
             <h1> hi from home</h1>
             <h3> Welcome: {userData.user?.displayName}</h3>
+            <BurritoContainer />
         </div>
     )
 }

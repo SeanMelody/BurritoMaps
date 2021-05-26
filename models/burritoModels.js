@@ -16,7 +16,7 @@ const burritoSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-    authorID: {
+    authorId: {
         type: String,
         required: true,
     }
