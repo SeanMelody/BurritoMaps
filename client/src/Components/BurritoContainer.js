@@ -39,6 +39,7 @@ const BurritoContainer = () => {
 
             console.log(allBurritos)
         })()
+        console.log("use Effect")
     }, [])
 
     return (

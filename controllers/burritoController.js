@@ -21,12 +21,11 @@ module.exports = {
     },
 
     getUserBurritos: async (req, res) => {
-        console.log("getuserBurritos")
+        // console.log("getuserBurritos")
 
         try {
-
             const allBurritos = await Burrito.find({ authorId: req.user })
-            console.log(allBurritos)
+            res.json(allBurritos)
 
         } catch (err) {
             console.log(err)
