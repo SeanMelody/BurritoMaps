@@ -33,23 +33,6 @@ const BurritoContainer = () => {
 
     }
 
-    // useEffect(() => {
-    //     // let isMounted = true
-    //     (async () => {
-    //         try {
-    //             const allBurritos = await axios.get("/burritos", {
-    //                 headers: { "x-auth-token": localStorage.getItem("auth-token") },
-    //             })
-
-    //             console.log(allBurritos.data)
-    //             setBurritos(allBurritos.data)
-    //         } catch (err) {
-    //             console.log(err)
-    //         }
-    //     })()
-    //     // console.log("use Effect")
-    // }, [])
-
     return (
         <div className="container justify-content-center">
             <h1>Hello from Burrito Container</h1>

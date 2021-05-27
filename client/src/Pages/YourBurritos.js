@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { useHistory } from "react-router-dom"
+import userContext from "../Context/UserContext"
 import axios from "axios"
 
 const YourBurritos = () => {
 
     const [burritos, setBurritos] = useState([])
 
+    const { userData } = useContext(userContext)
+
+    const history = useHistory()
 
     useEffect(() => {
-        // let isMounted = true
+        if (!userData.user) {
+            history.push("/login")
+        }
+
+        // console.log(userData.user)
+
+        userData.user
+            ? console.log(userData.user.displayName)
+            : console.log("Not here yet")
+
+    }, [userData.user, history])
+
+
+    useEffect(() => {
         (async () => {
             try {
                 const allBurritos = await axios.get("/burritos", {
@@ -20,14 +38,13 @@ const YourBurritos = () => {
                 console.log(err)
             }
         })()
-        // console.log("use Effect")
     }, [])
 
 
     return (
 
         <div className="allBurritos">
-            <h1>Your burrtios</h1>
+            <h1>Your Burritos</h1>
             {burritos.map((burrito, index) => (
                 <div key={index} >
                     <p>{burrito.burrito}</p>
