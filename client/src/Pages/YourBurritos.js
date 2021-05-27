@@ -43,11 +43,21 @@ const YourBurritos = () => {
 
     return (
 
-        <div className="allBurritos">
+        <div className="allBurritos container">
             <h1>Your Burritos</h1>
             {burritos.map((burrito, index) => (
-                <div key={index} >
-                    <p>{burrito.burrito}</p>
+                <div key={index} className="card">
+                    <div>
+                        <h3 className="card-title">{burrito.restaurant}</h3>
+                        <div className="card-body">
+                            <h5>Burrito Name:</h5>
+                            <p>{burrito.burrito}</p>
+                            <h5>Ranking (1 to 10):</h5>
+                            <p>{burrito.ranking}</p>
+                            <h5>Description:</h5>
+                            <p>{burrito.description}</p>
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
