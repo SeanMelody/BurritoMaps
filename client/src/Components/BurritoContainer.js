@@ -10,7 +10,7 @@ const BurritoContainer = () => {
         description: "",
     })
 
-    const [burrito, setBurrito] = useState([])
+    const [burritos, setBurritos] = useState([])
 
     const onChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -25,6 +25,8 @@ const BurritoContainer = () => {
         try {
             const newBurrito = await axios.post("/burritos", form, { headers: { "x-auth-token": localStorage.getItem("auth-token") }, })
             console.log(newBurrito)
+
+            setBurritos([...burritos, newBurrito])
         } catch (err) {
             console.log(err)
         }
@@ -32,14 +34,20 @@ const BurritoContainer = () => {
     }
 
     useEffect(() => {
+        // let isMounted = true
         (async () => {
-            const allBurritos = await axios.get("/burritos", {
-                headers: { "x-auth-token": localStorage.getItem("auth-token") },
-            })
+            try {
+                const allBurritos = await axios.get("/burritos", {
+                    headers: { "x-auth-token": localStorage.getItem("auth-token") },
+                })
 
-            console.log(allBurritos)
+                console.log(allBurritos.data)
+                setBurritos(allBurritos.data)
+            } catch (err) {
+                console.log(err)
+            }
         })()
-        console.log("use Effect")
+        // console.log("use Effect")
     }, [])
 
     return (
@@ -52,7 +60,17 @@ const BurritoContainer = () => {
                 <textarea onChange={onChange} type="text" name="description" placeholder="description" className="row col-md-10 margin10" />
                 <button type="submit" className="btn btn-secondary margin10">Save</button>
             </form>
-        </div>
+
+            <div className="allBurritos">
+                {burritos.map((burrito, index) => (
+                    <div key={index} >
+                        <p>{burrito.burrito}</p>
+                    </div>
+                ))}
+            </div>
+
+
+        </div >
     )
 }
 
