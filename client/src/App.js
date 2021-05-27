@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import Home from "./Pages/Home"
+import YourBurritos from "./Pages/YourBurritos"
 import UserContext from "./Context/UserContext"
 import axios from 'axios';
 
@@ -76,6 +77,11 @@ function App() {
           : <>
             <nav className="navbar">
               <h1>Burrito Maps</h1>
+              <Link to="/yourBurritos" style={loginLogoutStyles}>
+                <button className="btn btn-outline-success">
+                  Your Burritos
+                </button>
+              </Link>
               <Link to="/" onClick={logout} style={loginLogoutStyles}>
                 <button className="btn btn-outline-danger">
                   Logout
@@ -89,6 +95,7 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/yourBurritos" component={YourBurritos} />
             <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from "axios"
 
 const BurritoContainer = () => {
@@ -33,22 +33,22 @@ const BurritoContainer = () => {
 
     }
 
-    useEffect(() => {
-        // let isMounted = true
-        (async () => {
-            try {
-                const allBurritos = await axios.get("/burritos", {
-                    headers: { "x-auth-token": localStorage.getItem("auth-token") },
-                })
+    // useEffect(() => {
+    //     // let isMounted = true
+    //     (async () => {
+    //         try {
+    //             const allBurritos = await axios.get("/burritos", {
+    //                 headers: { "x-auth-token": localStorage.getItem("auth-token") },
+    //             })
 
-                console.log(allBurritos.data)
-                setBurritos(allBurritos.data)
-            } catch (err) {
-                console.log(err)
-            }
-        })()
-        // console.log("use Effect")
-    }, [])
+    //             console.log(allBurritos.data)
+    //             setBurritos(allBurritos.data)
+    //         } catch (err) {
+    //             console.log(err)
+    //         }
+    //     })()
+    //     // console.log("use Effect")
+    // }, [])
 
     return (
         <div className="container justify-content-center">
@@ -60,14 +60,6 @@ const BurritoContainer = () => {
                 <textarea onChange={onChange} type="text" name="description" placeholder="description" className="row col-md-10 margin10" />
                 <button type="submit" className="btn btn-secondary margin10">Save</button>
             </form>
-
-            <div className="allBurritos">
-                {burritos.map((burrito, index) => (
-                    <div key={index} >
-                        <p>{burrito.burrito}</p>
-                    </div>
-                ))}
-            </div>
 
 
         </div >
