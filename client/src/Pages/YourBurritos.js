@@ -45,10 +45,42 @@ const YourBurritos = () => {
 
         <div className="allBurritos container">
             <h1>Your Burritos</h1>
+
+            {burritos.length ? (
+                <div className="table-responsive">
+                    <table className="table table-striped text-center table-hover">
+                        <thead>
+                            <th>Restaurant</th>
+                            <th>Burrito</th>
+                            <th>Ranking (1 to 10)</th>
+                        </thead>
+                        {burritos.map((burrito, index) => (
+                            <tbody key={index}>
+                                <tr>
+                                    <td>{burrito.restaurant} </td>
+                                    <td>{burrito.burrito} </td>
+                                    <td>{burrito.ranking} </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        ))}
+
+
+                    </table>
+                </div>
+
+
+            ) :
+                (<h1>No saved burritos</h1>)}
+
             {burritos.map((burrito, index) => (
                 <div key={index} className="card">
                     <div>
                         <h3 className="card-title">{burrito.restaurant}</h3>
+                        <hr></hr>
                         <div className="card-body">
                             <h5>Burrito Name:</h5>
                             <p>{burrito.burrito}</p>
@@ -65,3 +97,21 @@ const YourBurritos = () => {
 }
 
 export default YourBurritos
+
+
+
+// Card for burritos                
+// <div key={index} className="card">
+// <div>
+//     <h3 className="card-title">{burrito.restaurant}</h3>
+//     <hr></hr>
+//     <div className="card-body">
+//         <h5>Burrito Name:</h5>
+//         <p>{burrito.burrito}</p>
+//         <h5>Ranking (1 to 10):</h5>
+//         <p>{burrito.ranking}</p>
+//         <h5>Description:</h5>
+//         <p>{burrito.description}</p>
+//     </div>
+// </div>
+// </div>
