@@ -50,9 +50,12 @@ const YourBurritos = () => {
                 <div className="table-responsive">
                     <table className="table table-striped text-center table-hover">
                         <thead>
-                            <th>Restaurant</th>
-                            <th>Burrito</th>
-                            <th>Ranking (1 to 10)</th>
+                            <tr>
+                                <th>Restaurant</th>
+                                <th>Burrito</th>
+                                <th>Ranking (1 to 10)</th>
+                                <th>Description</th>
+                            </tr>
                         </thead>
                         {burritos.map((burrito, index) => (
                             <tbody key={index}>
@@ -60,9 +63,9 @@ const YourBurritos = () => {
                                     <td>{burrito.restaurant} </td>
                                     <td>{burrito.burrito} </td>
                                     <td>{burrito.ranking} </td>
+                                    <td>{burrito.description} </td>
 
                                 </tr>
-
 
                             </tbody>
 
@@ -74,25 +77,11 @@ const YourBurritos = () => {
 
 
             ) :
-                (<h1>No saved burritos</h1>)}
+                (<h1>No saved burritos</h1>)
+            }
 
-            {burritos.map((burrito, index) => (
-                <div key={index} className="card">
-                    <div>
-                        <h3 className="card-title">{burrito.restaurant}</h3>
-                        <hr></hr>
-                        <div className="card-body">
-                            <h5>Burrito Name:</h5>
-                            <p>{burrito.burrito}</p>
-                            <h5>Ranking (1 to 10):</h5>
-                            <p>{burrito.ranking}</p>
-                            <h5>Description:</h5>
-                            <p>{burrito.description}</p>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
+
+        </div >
     )
 }
 
