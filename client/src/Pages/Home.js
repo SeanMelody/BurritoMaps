@@ -11,18 +11,6 @@ export const Home = (props) => {
 
     const history = useHistory()
 
-    const deleteUser = async () => {
-        try {
-            await axios.delete("/users",
-                {
-                    headers: { "x-auth-token": localStorage.getItem("auth-token") },
-                });
-            console.log("Deleted:");
-            history.push("/");
-        } catch (err) {
-            console.log(`Error deleting: ${err}`)
-        }
-    }
 
     useEffect(() => {
         if (!userData.user) {
@@ -36,6 +24,22 @@ export const Home = (props) => {
             : console.log("Not here yet")
 
     }, [userData.user, history])
+
+
+    const deleteUser = async () => {
+
+        try {
+            await axios.delete("/users", {
+                headers: { "x-auth-token": localStorage.getItem("auth-token") },
+            });
+
+            history.push("/")
+        } catch (err) {
+            console.log(`Error deleting: ${err}`)
+            console.log(err)
+        }
+
+    }
 
     return (
         <div>

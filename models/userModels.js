@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("findOneAndDelete", async (user) => {
     try {
         await Burrito.deleteMany({ authorId: user._id })
+        console.log("find and delete")
     } catch (err) {
         console.log(err)
     }
