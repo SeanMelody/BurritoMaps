@@ -26,9 +26,13 @@ const YourBurritos = () => {
 
 
     useEffect(() => {
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+
         (async () => {
             try {
                 const allBurritos = await axios.get("/burritos", {
+                    cancelToken: source.token,
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 })
 
@@ -37,7 +41,12 @@ const YourBurritos = () => {
             } catch (err) {
                 console.log(err)
             }
+
+
+
+
         })()
+        return () => source.cancel()
     }, [])
 
 
