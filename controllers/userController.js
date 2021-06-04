@@ -69,14 +69,14 @@ module.exports = {
                 from: "dzesean@gmail.com",
                 to: newUser.email,
                 subject: "Please confirm your email",
-                text: `Click to confirm http://localhost:5050/confrim_token${confirmationToken.token}`,
+                text: `Click to confirm http://localhost:3000/confirm_token:${confirmationToken.token}`,
             }
 
             transporter.sendMail(mailOptions, (err, info) => {
                 if (err) {
                     console.log(err)
                 } else {
-                    console.log(`Confirm email was sent with: http://localhost:5050/confrim_token${confirmationToken.token}`)
+                    console.log(`Confirm email was sent with: http://localhost:3000/confirm_token:${confirmationToken.token}`)
                 }
             })
             await confirmationToken.save()
