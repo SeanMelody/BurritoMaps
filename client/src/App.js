@@ -8,7 +8,9 @@ import Home from "./Pages/Home"
 import YourBurritos from "./Pages/YourBurritos"
 import Confirm from "./Pages/Confirm"
 import UserContext from "./Context/UserContext"
+import ConfirmAccount from './Pages/ConfirmAccount';
 import axios from 'axios';
+
 
 // Tuesday March 9th, video: 
 
@@ -100,6 +102,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/confirm" component={Confirm} />
             <Route path="/yourBurritos" component={YourBurritos} />
+            <Route path="/confirm_token:token" component={ConfirmAccount} />
             <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>

@@ -55,16 +55,31 @@ module.exports = {
             // Transporter for emailing confirmation link!
             // Messages sent via my throw away email: dzesean@gmail.com
 
-            console.log(confirmationToken)
+            // console.log(confirmationToken)
             const transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth: {
                     user: "dzesean@gmail.com",
-                    pass: "1{-Bo/LY#U",
-                }
+                    pass: process.env.EMAILPASS,
+                },
             })
 
+            //1:53:26
+            const mailOptions = {
+                from: "dzesean@gmail.com",
+                to: newUser.email,
+                subject: "Please confirm your email",
+                text: `Click to confirm http://localhost:5050/confrim_token${confirmationToken.token}`,
+            }
 
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log(`Confirm email was sent with: http://localhost:5050/confrim_token${confirmationToken.token}`)
+                }
+            })
+            await confirmationToken.save()
             const savedUser = await newUser.save()
             res.json(savedUser)
         } catch (err) {
