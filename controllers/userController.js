@@ -81,7 +81,7 @@ module.exports = {
 
             res.json({
                 token,
-                user: { id: user._id, displayName: user.displayName }
+                user: { id: user._id, displayName: user.displayName, confirmed: user.confirmed, }
             })
 
 

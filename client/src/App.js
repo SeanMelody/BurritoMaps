@@ -6,6 +6,7 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import Home from "./Pages/Home"
 import YourBurritos from "./Pages/YourBurritos"
+import Confirm from "./Pages/Confirm"
 import UserContext from "./Context/UserContext"
 import axios from 'axios';
 
@@ -18,9 +19,9 @@ function App() {
     token: undefined
   })
 
-
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token")
+
     if (token === null) {
       localStorage.setItem("auth-token", "")
     }
@@ -97,6 +98,7 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/confirm" component={Confirm} />
             <Route path="/yourBurritos" component={YourBurritos} />
             <Route path="/" component={Home} />
           </Switch>

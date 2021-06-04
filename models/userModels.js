@@ -16,7 +16,11 @@ const userSchema = new mongoose.Schema({
     displayName: {
         type: String,
         required: true,
-    }
+    },
+    confirmed: {
+        type: Boolean,
+        default: false
+    },
 })
 
 userSchema.post("findOneAndDelete", async (user) => {

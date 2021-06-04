@@ -22,15 +22,24 @@ const Login = () => {
         console.log("submitted")
         try {
             const { data } = await axios.post("/users/login", form)
+
             console.log(data)
 
-            setUserData({
-                token: data.token,
-                user: data.user
-            })
+            if (!data.user.confirmed) {
+                history.push("/confirm")
+                console.log("not confirmed")
+            } else {
+                console.log("confirmed")
+                setUserData({
+                    token: data.token,
+                    user: data.user
+                })
 
-            localStorage.setItem("auth-token", data.token)
-            history.push("/")
+                localStorage.setItem("auth-token", data.token)
+                history.push("/")
+
+            }
+
 
         } catch (err) {
             console.log(err.response)
