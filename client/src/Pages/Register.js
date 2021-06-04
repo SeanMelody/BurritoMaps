@@ -19,7 +19,7 @@ export const Register = () => {
         try {
             const newUser = await axios.post("/users/register", form);
             console.log(newUser)
-            history.push("/login")
+            history.push("/")
         } catch (err) {
             console.log(err.response)
         }

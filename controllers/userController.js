@@ -107,12 +107,14 @@ module.exports = {
     },
 
     //33min
+    //58mins
     deleteUser: async (req, res) => {
         try {
-            const deletedUser = await User.findByIdAndDelete(req.user)
+            const deleteUser = await User.findByIdAndDelete(req.user)
+            res.json(deleteUser)
         } catch (err) {
             console.log(err)
-            res.send(err)
+            res.send({ error: err })
         }
     }
 

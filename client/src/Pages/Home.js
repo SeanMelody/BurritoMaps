@@ -33,7 +33,7 @@ export const Home = (props) => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") },
             });
 
-            history.push("/")
+            history.push("/");
         } catch (err) {
             console.log(`Error deleting: ${err}`)
             console.log(err)
