@@ -37,6 +37,7 @@ if (process.env.NODE_ENV == "production") {
 
 app.use("/users", require("./routes/userRoutes"))
 app.use("/burritos", require("./routes/burritoRoutes"))
+app.use("/register", require("./routes/confirmRoutes"))
 
 
 // app.get("*", (req, res) => {
