@@ -1,6 +1,9 @@
 const User = require("../models/userModels")
+const Confirm = require("../models/confirmModels")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
+const crypto = require("crypto")
+const nodemailer = require("nodemailer")
 require("dotenv").config()
 
 module.exports = {
@@ -42,6 +45,25 @@ module.exports = {
                 password: passwordHash,
                 displayName,
             })
+
+            // Confirm starts here
+            const confirmationToken = new Confirm({
+                token: crypto.randomBytes(10).toString("hex"),
+                authorId: newUser._id,
+            })
+
+            // Transporter for emailing confirmation link!
+            // Messages sent via my throw away email: dzesean@gmail.com
+
+            console.log(confirmationToken)
+            const transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    user: "dzesean@gmail.com",
+                    pass: "1{-Bo/LY#U",
+                }
+            })
+
 
             const savedUser = await newUser.save()
             res.json(savedUser)
