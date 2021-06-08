@@ -20,7 +20,7 @@ const YourBurritos = () => {
 
         userData.user
             ? console.log(userData.user.displayName)
-            : console.log("Not here yet")
+            : console.log("User Loading")
 
     }, [userData.user, history])
 
@@ -36,7 +36,7 @@ const YourBurritos = () => {
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 })
 
-                console.log(allBurritos.data)
+                // console.log(allBurritos.data)
                 setBurritos(allBurritos.data)
             } catch (err) {
                 console.log(err)

@@ -12,7 +12,7 @@ const ConfirmAccount = (props) => {
             try {
                 await axios.post("/register", { token: props.match.params.token })
                 history.push("/");
-                console.log("props.match.params.token", props.match.params.token)
+                // console.log("props.match.params.token", props.match.params.token)
             } catch (err) {
                 console.log(err)
             }

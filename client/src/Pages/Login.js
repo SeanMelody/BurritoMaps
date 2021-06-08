@@ -23,13 +23,13 @@ const Login = () => {
         try {
             const { data } = await axios.post("/users/login", form)
 
-            console.log(data)
+            // console.log(data)
 
             if (!data.user.confirmed) {
                 history.push("/confirm")
-                console.log("not confirmed")
+                // console.log("not confirmed")
             } else {
-                console.log("confirmed")
+                // console.log("confirmed")
                 setUserData({
                     token: data.token,
                     user: data.user

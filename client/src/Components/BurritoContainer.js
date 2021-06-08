@@ -24,7 +24,7 @@ const BurritoContainer = () => {
 
         try {
             const newBurrito = await axios.post("/burritos", form, { headers: { "x-auth-token": localStorage.getItem("auth-token") }, })
-            console.log(newBurrito)
+            // console.log(newBurrito)
 
             setBurritos([...burritos, newBurrito])
         } catch (err) {

@@ -5,11 +5,9 @@ module.exports = {
     confirmUser: async (req, res) => {
         try {
             const confirmation = await Confirm.findOne({ token: req.body.token })
-            // console.log(res)
-            // console.log("confirmation", confirmation)
-            console.log(req.body.token)
-            console.log(req.body.authorId)
-            console.log(confirmation.authorId)
+            // console.log(req.body.token)
+            // console.log(req.body.authorId)
+            // console.log(confirmation.authorId)
 
 
             const confirmedUser = await User.findById(confirmation.authorId)

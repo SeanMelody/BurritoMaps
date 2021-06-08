@@ -17,8 +17,9 @@ export const Register = () => {
         // console.log(form)
 
         try {
-            const newUser = await axios.post("/users/register", form);
-            console.log(newUser)
+            await axios.post("/users/register", form);
+            // const newUser = await axios.post("/users/register", form);
+            // console.log(newUser)
             history.push("/")
         } catch (err) {
             console.log(err.response)

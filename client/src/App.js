@@ -11,9 +11,6 @@ import UserContext from "./Context/UserContext"
 import ConfirmAccount from './Pages/ConfirmAccount';
 import axios from 'axios';
 
-
-// Tuesday March 9th, video: 
-
 function App() {
 
   const [userData, setUserData] = useState({
@@ -59,8 +56,6 @@ function App() {
 
   return (
     <div className="App">
-
-      {/* <h1>Burrito Maps!</h1> */}
       <Router>
         {!userData.user ?
           <>

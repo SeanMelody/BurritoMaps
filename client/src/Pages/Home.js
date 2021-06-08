@@ -21,7 +21,7 @@ export const Home = (props) => {
 
         userData.user
             ? console.log(userData.user.displayName)
-            : console.log("Not here yet")
+            : console.log("User loading")
 
     }, [userData.user, history])
 
