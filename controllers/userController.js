@@ -46,6 +46,7 @@ module.exports = {
                 displayName,
             })
 
+
             // Confirm starts here
             const confirmationToken = new Confirm({
                 token: crypto.randomBytes(10).toString("hex"),
@@ -56,7 +57,6 @@ module.exports = {
 
             // Transporter for emailing confirmation link!
             // Messages sent via my throw away email: dzesean@gmail.com
-
             // console.log(confirmationToken)
             const transporter = nodemailer.createTransport({
                 service: "gmail",
@@ -66,19 +66,19 @@ module.exports = {
                 },
             })
 
-            //1:53:26
+
             const mailOptions = {
                 from: "dzesean@gmail.com",
                 to: newUser.email,
-                subject: "Please confirm your email",
-                text: `Click to confirm http://localhost:3000/confirm_token${confirmationToken.token}`,
+                subject: "Please confirm your email for burrito maps!",
+                text: `Click the link to confirm  your account! http://localhost:3000/confirm_token${confirmationToken.token}`,
             }
 
             transporter.sendMail(mailOptions, (err, info) => {
                 if (err) {
                     console.log(err)
                 } else {
-                    console.log(`Confirm email was sent with: http://localhost:3000/confirm_token${confirmationToken.token} for authorId ${newUser._id} ${confirmationToken.authorId}`)
+                    console.log(`Confirm email was sent with: http://localhost:3000/confirm_token${confirmationToken.token} for authorId ${newUser._id}`)
                 }
             })
             await confirmationToken.save()
