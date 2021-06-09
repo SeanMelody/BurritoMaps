@@ -60,7 +60,9 @@ function App() {
         {!userData.user ?
           <>
             <nav className="navbar">
-              <h1>Burrito Maps</h1>
+              <Link to="/" style={loginLogoutStyles}>
+                <h1>Burrito Maps</h1>
+              </Link>
               <Link to="/login" style={loginLogoutStyles}>
                 <button className="btn btn-outline-primary">
                   Login
@@ -76,7 +78,9 @@ function App() {
 
           : <>
             <nav className="navbar">
-              <h1>Burrito Maps</h1>
+              <Link to="/" style={loginLogoutStyles}>
+                <h1>Burrito Maps</h1>
+              </Link>
               <Link to="/yourBurritos" style={loginLogoutStyles}>
                 <button className="btn btn-outline-success">
                   Your Burritos

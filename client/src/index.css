@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: auto;
+  width: auto;
+
+  background-image: url(http://www.userlogos.org/files/backgrounds/Mafia_Penguin/Map1280x800.jpg);
+  background-size: cover;
+  background-repeat: np-repeat;
 }
 
 code {
