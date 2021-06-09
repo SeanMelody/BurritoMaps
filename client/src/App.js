@@ -8,7 +8,8 @@ import Home from "./Pages/Home"
 import YourBurritos from "./Pages/YourBurritos"
 import Confirm from "./Pages/Confirm"
 import UserContext from "./Context/UserContext"
-import ConfirmAccount from './Pages/ConfirmAccount';
+import ConfirmAccount from './Pages/ConfirmAccount'
+import Map from './Pages/Map'
 import axios from 'axios';
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
         {!userData.user ?
           <>
             <nav className="navbar">
-              <Link to="/" style={loginLogoutStyles}>
+              <Link to="/home" style={loginLogoutStyles}>
                 <h1>Burrito Maps</h1>
               </Link>
               <Link to="/login" style={loginLogoutStyles}>
@@ -78,8 +79,13 @@ function App() {
 
           : <>
             <nav className="navbar">
-              <Link to="/" style={loginLogoutStyles}>
+              <Link to="/home" style={loginLogoutStyles}>
                 <h1>Burrito Maps</h1>
+              </Link>
+              <Link to="/clusters" style={loginLogoutStyles}>
+                <button className="btn btn-outline-primary">
+                  Clusters
+                </button>
               </Link>
               <Link to="/yourBurritos" style={loginLogoutStyles}>
                 <button className="btn btn-outline-success">
@@ -102,7 +108,8 @@ function App() {
             <Route path="/confirm" component={Confirm} />
             <Route path="/yourBurritos" component={YourBurritos} />
             <Route path="/confirm_token:token" component={ConfirmAccount} />
-            <Route path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/" component={Map} />
           </Switch>
         </UserContext.Provider>
       </Router>
