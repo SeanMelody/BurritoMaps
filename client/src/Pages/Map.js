@@ -1,4 +1,5 @@
-import React, { useRef, useState, useCallback } from "react";
+import React, { useRef, useState, useCallback, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 // import React, { useRef, useState, useEffect, useCallback, useContext } from "react";
 import ReactMapGL, {
     // Marker,
@@ -10,8 +11,9 @@ import ReactMapGL, {
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import userContext from "../Context/UserContext"
 // import mapboxgl from 'mapbox-gl';
-// import axios from "axios";
+import axios from "axios";
 
 
 // @ts-ignore
@@ -20,7 +22,47 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 
+
+
+
 const Map = () => {
+    const { userData } = useContext(userContext)
+
+    const history = useHistory()
+
+
+    useEffect(() => {
+        if (!userData.user) {
+            history.push("/login")
+        }
+
+        // console.log(userData.user)
+
+        userData.user
+            ? console.log(userData.user.displayName)
+            : console.log("User loading")
+
+    }, [userData.user, history])
+
+
+
+    // reusable backend call to fetch event database
+    const getEvents = async () => {
+        try {
+            console.log("getEvents")
+            //   const showMarkers = await listEvents();
+
+            //   setEvents(showMarkers);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    // Use effect to get the events from the database
+    useEffect(() => {
+        // getUserData();
+        getEvents();
+    }, []);
 
 
     // map setup
