@@ -27,6 +27,7 @@ import axios from "axios";
 
 const Map = () => {
     const { userData } = useContext(userContext)
+    const [burritos, setBurritos] = useState([])
 
     const history = useHistory()
 
@@ -46,11 +47,15 @@ const Map = () => {
 
 
 
-    // reusable backend call to fetch event database
-    const getEvents = async () => {
+    // reusable backend call to fetch burrito database
+    const getAllBurritos = async () => {
         try {
-            console.log("getEvents")
-            //   const showMarkers = await listEvents();
+            // console.log("getAllBurritos")
+            const displayBurritos = await axios.get("/burritos/all")
+            // console.log(displayBurritos.data)
+
+            setBurritos(displayBurritos.data)
+            console.log("All Burritos", burritos)
 
             //   setEvents(showMarkers);
         } catch (error) {
@@ -58,10 +63,10 @@ const Map = () => {
         }
     };
 
-    // Use effect to get the events from the database
+    // Use effect to get the burritos from the database
     useEffect(() => {
-        // getUserData();
-        getEvents();
+
+        getAllBurritos();
     }, []);
 
 
