@@ -4,7 +4,7 @@ import BurritoContainer from '../Components/BurritoContainer'
 const AddBurrito = () => {
     return (
         <div>
-            <h1>Welcome to AddBurrito!</h1>
+            <h1>Add a burrito</h1>
             <BurritoContainer />
 
         </div>

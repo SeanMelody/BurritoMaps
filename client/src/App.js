@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 // import Nav from "./Components/Nav"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
-import Home from "./Pages/Home"
+import Profile from "./Pages/Profile"
 import YourBurritos from "./Pages/YourBurritos"
 import Confirm from "./Pages/Confirm"
 import UserContext from "./Context/UserContext"
@@ -38,10 +38,10 @@ function App() {
     }
   }
 
-  const logout = () => {
-    setUserData({ token: undefined, user: undefined })
-    localStorage.setItem("auth-token", "")
-  }
+  // const logout = () => {
+  //   setUserData({ token: undefined, user: undefined })
+  //   localStorage.setItem("auth-token", "")
+  // }
 
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function App() {
         {!userData.user ?
           <>
             <nav className="navbar">
-              <Link to="/home" style={loginLogoutStyles}>
+              <Link to="/clusters" style={loginLogoutStyles}>
                 <h1>Burrito Maps</h1>
               </Link>
               <Link to="/login" style={loginLogoutStyles}>
@@ -80,7 +80,7 @@ function App() {
 
           : <>
             <nav className="navbar">
-              <Link to="/home" style={loginLogoutStyles}>
+              <Link to="/map" style={loginLogoutStyles}>
                 <h1>Burrito Maps</h1>
               </Link>
               <Link to="/clusters" style={loginLogoutStyles}>
@@ -89,7 +89,7 @@ function App() {
                 </button>
               </Link>
               <Link to="/addBurrito" style={loginLogoutStyles}>
-                <button className="btn btn-outline-info">
+                <button className="btn btn-outline-dark">
                   Add Burritos
                 </button>
               </Link>
@@ -98,11 +98,16 @@ function App() {
                   Your Burritos
                 </button>
               </Link>
-              <Link to="/" onClick={logout} style={loginLogoutStyles}>
+              <Link to="/profile" style={loginLogoutStyles}>
+                <button className="btn btn-outline-info">
+                  Profile
+                </button>
+              </Link>
+              {/* <Link to="/" onClick={logout} style={loginLogoutStyles}>
                 <button className="btn btn-outline-danger">
                   Logout
                 </button>
-              </Link>
+              </Link> */}
             </nav>
           </>
         }
@@ -115,7 +120,7 @@ function App() {
             <Route path="/addBurrito" component={AddBurrito} />
             <Route path="/yourBurritos" component={YourBurritos} />
             <Route path="/confirm_token:token" component={ConfirmAccount} />
-            <Route path="/home" component={Home} />
+            <Route path="/profile" component={Profile} />
             <Route path="/" component={Map} />
           </Switch>
         </UserContext.Provider>
