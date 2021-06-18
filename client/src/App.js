@@ -10,6 +10,7 @@ import Confirm from "./Pages/Confirm"
 import UserContext from "./Context/UserContext"
 import ConfirmAccount from './Pages/ConfirmAccount'
 import Map from './Pages/Map'
+import AddBurrito from './Pages/AddBurrito'
 import axios from 'axios';
 
 function App() {
@@ -87,6 +88,11 @@ function App() {
                   Clusters
                 </button>
               </Link>
+              <Link to="/addBurrito" style={loginLogoutStyles}>
+                <button className="btn btn-outline-info">
+                  Add Burritos
+                </button>
+              </Link>
               <Link to="/yourBurritos" style={loginLogoutStyles}>
                 <button className="btn btn-outline-success">
                   Your Burritos
@@ -106,6 +112,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/confirm" component={Confirm} />
+            <Route path="/addBurrito" component={AddBurrito} />
             <Route path="/yourBurritos" component={YourBurritos} />
             <Route path="/confirm_token:token" component={ConfirmAccount} />
             <Route path="/home" component={Home} />

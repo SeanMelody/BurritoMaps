@@ -49,9 +49,9 @@ const BurritoContainer = () => {
                     <option value="ElBurritoExpress">El Burrito Express Dos</option>
                     <option value="ElBurritoExpress">La Taqueria</option>
                     <option value="ElBurritoExpress">El Faralito</option>
-                    <option value="ElBurritoExpress">ElBurrito Express</option>
-                    <option value="ElBurritoExpress">ElBurrito Express</option>
-                    <option value="ElBurritoExpress">ElBurrito Express</option>
+                    <option value="ElBurritoExpress">Papalote</option>
+                    <option value="ElBurritoExpress">Another</option>
+                    <option value="ElBurritoExpress">Another</option>
                 </select>
                 <input onChange={onChange} type="text" name="burrito" placeholder="type of burrito (ex. Chicken, Carne Asada, Beans & Rice)" className="row col-md-10 margin10 form-control" />
                 <input onChange={onChange} type="number" name="ranking" placeholder="ranking 1 to 10" min="0" max="10" className="row col-md-10 margin10 form-control" />
