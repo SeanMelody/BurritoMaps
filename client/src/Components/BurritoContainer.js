@@ -29,13 +29,15 @@ const BurritoContainer = () => {
             // console.log(newBurrito)
 
             setBurritos([...burritos, newBurrito])
-            notify()
+            // console.log(form.restaurant)
+            console.log(newBurrito.data.restaurant)
+            notify(newBurrito.data.restaurant)
         } catch (err) {
             console.log(err)
         }
 
     }
-    const notify = () => toast("Wow so easy!");
+    const notify = (burrito) => toast(`${burrito} Saved!`);
 
     return (
         <div className="container justify-content-center">
@@ -45,13 +47,13 @@ const BurritoContainer = () => {
                 {/* <input onChange={onChange} type="text" name="restaurant" placeholder="restaurant" className="row col-md-10 margin10 form-control" /> */}
                 <select onChange={onChange} name="restaurant" className="row col-md-10 margin10 form-control" >
                     <option value="">--Select a Restaurant--</option>
-                    <option value="ElBurritoExpress">El Burrito Express Uno</option>
-                    <option value="ElBurritoExpress">El Burrito Express Dos</option>
-                    <option value="ElBurritoExpress">La Taqueria</option>
-                    <option value="ElBurritoExpress">El Faralito</option>
-                    <option value="ElBurritoExpress">Papalote</option>
-                    <option value="ElBurritoExpress">Another</option>
-                    <option value="ElBurritoExpress">Another</option>
+                    <option value="El Burrito Express Uno">El Burrito Express Uno</option>
+                    <option value="El Burrito Express Dos">El Burrito Express Dos</option>
+                    <option value="La Taqueria">La Taqueria</option>
+                    <option value="El Faralito">El Faralito</option>
+                    <option value="Papolote">Papalote</option>
+                    <option value="Another">Another</option>
+                    <option value="Another">Another</option>
                 </select>
                 <input onChange={onChange} type="text" name="burrito" placeholder="type of burrito (ex. Chicken, Carne Asada, Beans & Rice)" className="row col-md-10 margin10 form-control" />
                 <input onChange={onChange} type="number" name="ranking" placeholder="ranking 1 to 10" min="0" max="10" className="row col-md-10 margin10 form-control" />
