@@ -11,6 +11,7 @@ import UserContext from "./Context/UserContext"
 import ConfirmAccount from './Pages/ConfirmAccount'
 import Map from './Pages/Map'
 import AddBurrito from './Pages/AddBurrito'
+import Clusters from './Pages/Clusters'
 import axios from 'axios';
 
 function App() {
@@ -114,6 +115,7 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }} >
           {/* <Nav /> */}
           <Switch>
+            <Route path="/clusters" component={Clusters} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/confirm" component={Confirm} />
