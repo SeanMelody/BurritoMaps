@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 
 const BurritoContainer = () => {
@@ -27,18 +29,21 @@ const BurritoContainer = () => {
             // console.log(newBurrito)
 
             setBurritos([...burritos, newBurrito])
+            notify()
         } catch (err) {
             console.log(err)
         }
 
     }
+    const notify = () => toast("Wow so easy!");
 
     return (
         <div className="container justify-content-center">
+            <ToastContainer />
             <h1>Hello from Burrito Container</h1>
             <form onSubmit={saveBurrito}>
-                <input onChange={onChange} type="text" name="restaurant" placeholder="restaurant" className="row col-md-10 margin10 form-control" />
-                <select onChange={onChange} name="restaurantSelect" className="row col-md-10 margin10 form-control" >
+                {/* <input onChange={onChange} type="text" name="restaurant" placeholder="restaurant" className="row col-md-10 margin10 form-control" /> */}
+                <select onChange={onChange} name="restaurant" className="row col-md-10 margin10 form-control" >
                     <option value="">--Select a Restaurant--</option>
                     <option value="ElBurritoExpress">El Burrito Express Uno</option>
                     <option value="ElBurritoExpress">El Burrito Express Dos</option>
@@ -48,7 +53,7 @@ const BurritoContainer = () => {
                     <option value="ElBurritoExpress">ElBurrito Express</option>
                     <option value="ElBurritoExpress">ElBurrito Express</option>
                 </select>
-                <input onChange={onChange} type="text" name="burrito" placeholder="burrito" className="row col-md-10 margin10 form-control" />
+                <input onChange={onChange} type="text" name="burrito" placeholder="type of burrito (ex. Chicken, Carne Asada, Beans & Rice)" className="row col-md-10 margin10 form-control" />
                 <input onChange={onChange} type="number" name="ranking" placeholder="ranking 1 to 10" min="0" max="10" className="row col-md-10 margin10 form-control" />
                 <textarea onChange={onChange} type="text" name="description" placeholder="description" className="row col-md-10 margin10 form-control" />
                 <button type="submit" className="btn btn-secondary margin10">Save</button>
