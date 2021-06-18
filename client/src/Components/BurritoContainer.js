@@ -18,6 +18,7 @@ const BurritoContainer = () => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
+
     const saveBurrito = async (e) => {
         e.preventDefault()
 
@@ -32,12 +33,22 @@ const BurritoContainer = () => {
             // console.log(form.restaurant)
             console.log(newBurrito.data.restaurant)
             notify(newBurrito.data.restaurant)
+            clearForm()
         } catch (err) {
             console.log(err)
         }
 
     }
     const notify = (burrito) => toast(`${burrito} Saved!`);
+
+    const clearForm = () => {
+        console.log("clear")
+        window.location.reload()
+        // console.log(form.burrito)
+        // form.burrito = ""
+        // console.log(form.burrito)
+
+    }
 
     return (
         <div className="container justify-content-center">
