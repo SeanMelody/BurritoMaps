@@ -10,6 +10,7 @@ const BurritoContainer = () => {
         burrito: "",
         ranking: "",
         description: "",
+        location: []
     })
 
     const [burritos, setBurritos] = useState([])
@@ -30,8 +31,9 @@ const BurritoContainer = () => {
             // console.log(newBurrito)
 
             setBurritos([...burritos, newBurrito])
-            // console.log(form.restaurant)
+            // console.log(form.location)
             console.log(newBurrito.data.restaurant)
+            // console.log(newBurrito.data.location)
             notify(newBurrito.data.restaurant)
             clearForm()
         } catch (err) {
@@ -43,11 +45,34 @@ const BurritoContainer = () => {
 
     const clearForm = () => {
         console.log("clear")
-        window.location.reload()
+        // window.location.reload()
         // console.log(form.burrito)
         // form.burrito = ""
         // console.log(form.burrito)
 
+    }
+
+
+    if (form.restaurant === "El Burrito Express Uno") {
+        form.location = [{ latitude: 37.74251, longitude: -122.48549 }]
+    }
+    if (form.restaurant === "El Burrito Express Dos") {
+        form.location = [{ latitude: 37.78644, longitude: -122.443994 }]
+    }
+    if (form.restaurant === "La Taqueria") {
+        form.location = [{ latitude: 37.75087, longitude: -122.41818 }]
+    }
+    if (form.restaurant === "El Faralito") {
+        form.location = [{ latitude: 37.75263, longitude: -122.41833 }]
+    }
+    if (form.restaurant === "Papolote") {
+        form.location = [{ latitude: 37.77575, longitude: -122.44598 }]
+    }
+    if (form.restaurant === "Another") {
+        form.location = [{ latitude: 37.7000, longitude: -122.48000 }]
+    }
+    if (form.restaurant === "Another") {
+        form.location = [{ latitude: 37.7000, longitude: -122.48000 }]
     }
 
     return (

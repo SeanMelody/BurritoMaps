@@ -9,6 +9,7 @@ module.exports = {
                 burrito: req.body.burrito,
                 ranking: req.body.ranking,
                 description: req.body.description,
+                location: [{ latitude: req.body.location[0].latitude, longitude: req.body.location[0].longitude }],
                 authorId: req.user,
             })
 
