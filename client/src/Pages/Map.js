@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback, useEffect, useContext } from "rea
 import { useHistory } from "react-router-dom";
 // import React, { useRef, useState, useEffect, useCallback, useContext } from "react";
 import ReactMapGL, {
-    // Marker,
+    Marker,
     // Popup,
     // GeolocateControl,
     // NavigationControl,
@@ -48,25 +48,45 @@ const Map = () => {
 
 
     // reusable backend call to fetch burrito database
-    const getAllBurritos = async () => {
-        try {
-            // console.log("getAllBurritos")
-            const displayBurritos = await axios.get("/burritos/all")
-            // console.log(displayBurritos.data)
+    // const getAllBurritos = async () => {
+    //     try {
+    //         // console.log("getAllBurritos")
+    //         const displayBurritos = await axios.get("/burritos/all")
+    //         // console.log(displayBurritos.data)
 
-            setBurritos(displayBurritos.data)
-            console.log("All Burritos", burritos)
+    //         setBurritos(displayBurritos.data)
+    //         console.log("All Burritos", burritos)
 
-            //   setEvents(showMarkers);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //         //   setEvents(showMarkers);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     // Use effect to get the burritos from the database
     useEffect(() => {
 
-        getAllBurritos();
+        // getAllBurritos();
+        // const cancelToken = axios.CancelToken;
+        // const source = cancelToken.source();
+
+        (async () => {
+            try {
+                const getAllBurritos = await axios.get("/burritos/all")
+
+                // console.log(allBurritos.data)
+                setBurritos(getAllBurritos.data)
+                console.log("All Burritos", burritos)
+            } catch (err) {
+                console.log(err)
+            }
+
+        })()
+        // return () => source.cancel()
+
+
+
+
     }, []);
 
 
@@ -125,6 +145,20 @@ const Map = () => {
                 // onDblClick={addEventPopup}
                 onViewportChange={handleViewportChange}
             >
+                {burritos.map((burrito) => (
+                    <React.Fragment key={burrito._id}>
+                        <Marker
+                            // className="event-pin"
+                            latitude={burrito.location[0].latitude}
+                            longitude={burrito.location[0].longitude}
+                            offsetTop={-20}
+                            offsetLeft={-10}
+                        >
+                            <div>{burrito.restaurant}</div>
+                        </Marker>
+
+                    </React.Fragment>
+                ))}
             </ReactMapGL>
         </div>
     )

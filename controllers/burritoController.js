@@ -35,13 +35,12 @@ module.exports = {
     },
 
     // Get All Burritos!
-    getAllBurritos: (req, res) => {
+    getAllBurritos: async (req, res) => {
 
         try {
-            Burrito.find({})
-                .then((all) => {
-                    res.json(all)
-                })
+            const all = await Burrito.find({})
+            res.json(all)
+            console.log(all)
         }
         catch (err) {
             console.log("Not able to get all burritos", err)
