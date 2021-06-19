@@ -14,6 +14,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import userContext from "../Context/UserContext"
 // import mapboxgl from 'mapbox-gl';
 import axios from "axios";
+import Pins from "../Components/Pins";
 
 
 // @ts-ignore
@@ -154,7 +155,8 @@ const Map = () => {
                             offsetTop={-20}
                             offsetLeft={-10}
                         >
-                            <div>{burrito.restaurant}</div>
+                            {/* <div>{burrito.restaurant}</div> */}
+                            <Pins />
                         </Marker>
 
                     </React.Fragment>

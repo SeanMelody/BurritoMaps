@@ -45,7 +45,7 @@ const BurritoContainer = () => {
 
     const clearForm = () => {
         console.log("clear")
-        // window.location.reload()
+        window.location.reload()
         // console.log(form.burrito)
         // form.burrito = ""
         // console.log(form.burrito)
