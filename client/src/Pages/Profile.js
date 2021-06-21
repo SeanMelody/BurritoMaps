@@ -46,11 +46,27 @@ export const Profile = (props) => {
     }
 
     return (
-        <div>
+        <div className="card">
             {/* <h1> hi from Profile</h1> */}
-            <h1> Welcome: {userData.user?.displayName}</h1>
-            <button onClick={deleteUser} className="btn btn-danger">Delete Your Account</button>
-            <button onClick={logout} className="btn btn-info">Logout</button>
+            <h1 className="card-title"> Welcome: {userData.user?.displayName}</h1>
+            <hr></hr>
+            <div className="card-body">
+                <div className="row justify-content-center">
+                    <button onClick={logout} className="btn btn-info col-md-6 margin10">Logout</button>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn btn-info row col-md-6 margin10"> Change Photo</button>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn btn-info row col-md-6 margin10"> Change User Name</button>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn btn-info row col-md-6 margin10"> Change Email</button>
+                </div>
+            </div>
+            <div className="card-footer">
+                <button onClick={deleteUser} className="btn btn-danger">Delete Your Account</button>
+            </div>
             {/* <Link to="/" onClick={logout} style={loginLogoutStyles}>
                 <button className="btn btn-outline-danger">
                     Logout
