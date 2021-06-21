@@ -52,7 +52,7 @@ export const Profile = (props) => {
             <hr></hr>
             <div className="card-body">
                 <div className="row justify-content-center">
-                    <button onClick={logout} className="btn btn-info col-md-6 margin10">Logout</button>
+                    <button onClick={logout} className="btn btn-secondary col-md-6 margin10">Logout</button>
                 </div>
                 <div className="row justify-content-center">
                     <button className="btn btn-info row col-md-6 margin10"> Change Photo</button>
