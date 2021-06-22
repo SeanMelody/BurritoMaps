@@ -65,6 +65,8 @@ const Map = () => {
     // };
 
     // Use effect to get the burritos from the database
+
+    // eslint-disable-next-line
     useEffect(() => {
 
         // getAllBurritos();
