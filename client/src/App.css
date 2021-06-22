@@ -6,6 +6,11 @@
   margin: 10px;
 }
 
+.navbar {
+  background: linear-gradient(rgb(176, 239, 255), rgb(126, 230, 248));
+  height: 75px;
+}
+
 /* Set cluster markers for if LESS then 10 events  */
 .cluster-marker {
   color: black;
