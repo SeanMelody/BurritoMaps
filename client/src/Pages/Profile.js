@@ -45,6 +45,18 @@ export const Profile = (props) => {
 
     }
 
+    const updatePhoto = () => {
+        console.log("Update Photo")
+    }
+
+    const updateUserName = () => {
+        console.log("Update User Name")
+    }
+
+    const updateEmail = () => {
+        console.log("Update Email")
+    }
+
     return (
         <div className="card">
             {/* <h1> hi from Profile</h1> */}
@@ -55,13 +67,13 @@ export const Profile = (props) => {
                     <button onClick={logout} className="btn btn-secondary col-md-6 margin10">Logout</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button className="btn btn-info row col-md-6 margin10"> Change Photo</button>
+                    <button onClick={updatePhoto} className="btn btn-info row col-md-6 margin10">Change Photo</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button className="btn btn-info row col-md-6 margin10"> Change User Name</button>
+                    <button onClick={updateUserName} className="btn btn-info row col-md-6 margin10"> Change User Name</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button className="btn btn-info row col-md-6 margin10"> Change Email</button>
+                    <button onClick={updateEmail} className="btn btn-info row col-md-6 margin10"> Change Email</button>
                 </div>
             </div>
             <div className="card-footer">
