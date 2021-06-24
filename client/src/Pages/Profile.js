@@ -49,8 +49,19 @@ export const Profile = (props) => {
         console.log("Update Photo")
     }
 
-    const updateUserName = () => {
+    const updateUserName = async () => {
         console.log("Update User Name")
+        try {
+            // await axios.put("/users")
+            // console.log("profile updateUserName")
+            await axios.put("/users", {
+                headers: { "x-auth-token": localStorage.getItem("auth-token") },
+            });
+
+        } catch (err) {
+            console.log(`Error updating User Name: ${err}`)
+            console.log(err)
+        }
     }
 
     const updateEmail = () => {

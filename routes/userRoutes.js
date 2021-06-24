@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const auth = require("../middleware/auth")
 // const { users } = require("../controllers/userController")
-const { register, login, getUser, deleteUser } = require("../controllers/userController")
+const { register, login, getUser, deleteUser, updateUserName } = require("../controllers/userController")
 
 // Test route unused later
 router.get("/test", (req, res) => {
@@ -24,5 +24,8 @@ router.delete("/", auth, deleteUser)
 // users/login to get the user
 router.post("/login", login)
 
+// update userName
+router.put("/", updateUserName)
+// router.put("/", auth, updateUserName)
 
 module.exports = router;

@@ -145,8 +145,22 @@ module.exports = {
 
     },
 
-    //33min
-    //58mins
+
+    updateUserName: async (req, res) => {
+        console.log("userName userController")
+        // try {
+        //     const updateUserName = await User.findById(req.user)
+        //     res.json(updateUserName)
+        // }
+        // catch (err) {
+        //     console.log(err)
+        //     res.send({ error: err })
+        // }
+
+
+    },
+
+
     deleteUser: async (req, res) => {
         try {
             const deleteUser = await User.findByIdAndDelete(req.user)
