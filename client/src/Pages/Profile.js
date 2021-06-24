@@ -50,7 +50,8 @@ export const Profile = (props) => {
         }
     }
 
-    const updatePhoto = () => {
+    const updatePhoto = (e) => {
+        e.preventDefault()
         console.log("Update Photo")
     }
 
@@ -74,7 +75,8 @@ export const Profile = (props) => {
         // }
     }
 
-    const updateEmail = () => {
+    const updateEmail = (e) => {
+        e.preventDefault()
         console.log("Update Email")
     }
 
@@ -88,16 +90,15 @@ export const Profile = (props) => {
                     <button onClick={logout} className="btn btn-secondary col-md-6 margin10">Logout</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button onClick={updatePhoto} className="btn btn-info row col-md-6 margin10">Change Photo</button>
+                    <button onClick={updatePhoto} className="btn btn-info col-md-4 margin10">Change Photo</button>
                 </div>
                 <div className="row justify-content-center">
-                    <input onChange={onChange} type="text" name="updateName" placeholder={userData.user?.displayName}></input>
+                    <input onChange={onChange} type="text" name="updateName" placeholder={userData.user?.displayName} className="col-md-4 margin10"></input>
+                    <button onClick={updateUserName} className="btn btn-info col-md-4 margin10">Change User Name</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button onClick={updateUserName} className="btn btn-info row col-md-6 margin10">Change User Name</button>
-                </div>
-                <div className="row justify-content-center">
-                    <button onClick={updateEmail} className="btn btn-info row col-md-6 margin10">Change Email</button>
+                    <input onChange={onChange} type="text" name="updateEmail" placeholder={userData.user?.displayName} className="col-md-4 margin10"></input>
+                    <button onClick={updateEmail} className="btn btn-info col-md-4 margin10">Change Email</button>
                 </div>
             </div>
             <div className="card-footer">
