@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom"
 import userContext from "../Context/UserContext"
 import axios from 'axios'
@@ -6,6 +6,12 @@ import axios from 'axios'
 
 export const Profile = (props) => {
 
+
+    const [update, setUpdate] = useState()
+
+    const onChange = (e) => {
+        setUpdate({ ...update, [e.target.name]: e.target.value })
+    }
 
     const { userData, setUserData } = useContext(userContext)
 
@@ -42,7 +48,6 @@ export const Profile = (props) => {
             console.log(`Error deleting: ${err}`)
             console.log(err)
         }
-
     }
 
     const updatePhoto = () => {
@@ -51,17 +56,22 @@ export const Profile = (props) => {
 
     const updateUserName = async () => {
         console.log("Update User Name")
-        try {
-            // await axios.put("/users")
-            // console.log("profile updateUserName")
-            await axios.put("/users", {
-                headers: { "x-auth-token": localStorage.getItem("auth-token") },
-            });
 
-        } catch (err) {
-            console.log(`Error updating User Name: ${err}`)
-            console.log(err)
-        }
+        console.log(userData.user.displayName)
+
+        // console.log(update)
+
+        // try {
+        //     // await axios.put("/users")
+        //     // console.log("profile updateUserName")
+        //     await axios.put("/users", {
+        //         headers: { "x-auth-token": localStorage.getItem("auth-token") },
+        //     });
+
+        // } catch (err) {
+        //     console.log(`Error updating User Name: ${err}`)
+        //     console.log(err)
+        // }
     }
 
     const updateEmail = () => {
@@ -69,7 +79,7 @@ export const Profile = (props) => {
     }
 
     return (
-        <div className="card">
+        <form className="card">
             {/* <h1> hi from Profile</h1> */}
             <h1 className="card-title"> Welcome: {userData.user?.displayName}</h1>
             <hr></hr>
@@ -81,10 +91,13 @@ export const Profile = (props) => {
                     <button onClick={updatePhoto} className="btn btn-info row col-md-6 margin10">Change Photo</button>
                 </div>
                 <div className="row justify-content-center">
-                    <button onClick={updateUserName} className="btn btn-info row col-md-6 margin10"> Change User Name</button>
+                    <input onChange={onChange} type="text" name="updateName" placeholder={userData.user?.displayName}></input>
                 </div>
                 <div className="row justify-content-center">
-                    <button onClick={updateEmail} className="btn btn-info row col-md-6 margin10"> Change Email</button>
+                    <button onClick={updateUserName} className="btn btn-info row col-md-6 margin10">Change User Name</button>
+                </div>
+                <div className="row justify-content-center">
+                    <button onClick={updateEmail} className="btn btn-info row col-md-6 margin10">Change Email</button>
                 </div>
             </div>
             <div className="card-footer">
@@ -96,7 +109,7 @@ export const Profile = (props) => {
                 </button>
             </Link> */}
             {/* <BurritoContainer /> */}
-        </div>
+        </form>
     )
 }
 
