@@ -55,10 +55,12 @@ export const Profile = (props) => {
         console.log("Update Photo")
     }
 
-    const updateUserName = async () => {
+    const updateUserName = async (e) => {
+        e.preventDefault()
         console.log("Update User Name")
 
-        console.log(userData.user.displayName)
+        console.log("old name", userData.user.displayName)
+        console.log("new name", update.updateUserName)
 
         // console.log(update)
 
@@ -78,6 +80,8 @@ export const Profile = (props) => {
     const updateEmail = (e) => {
         e.preventDefault()
         console.log("Update Email")
+        console.log("old email", userData.user.email)
+        console.log("new email", update.updateUserEmail)
     }
 
     return (
@@ -93,11 +97,11 @@ export const Profile = (props) => {
                     <button onClick={updatePhoto} className="btn btn-info col-md-4 margin10">Change Photo</button>
                 </div>
                 <div className="row justify-content-center">
-                    <input onChange={onChange} type="text" name="updateName" placeholder={userData.user?.displayName} className="col-md-4 margin10"></input>
+                    <input onChange={onChange} type="text" name="updateUserName" placeholder={userData.user?.displayName} className="col-md-4 margin10"></input>
                     <button onClick={updateUserName} className="btn btn-info col-md-4 margin10">Change User Name</button>
                 </div>
                 <div className="row justify-content-center">
-                    <input onChange={onChange} type="text" name="updateEmail" placeholder={userData.user?.displayName} className="col-md-4 margin10"></input>
+                    <input onChange={onChange} type="text" name="updateUserEmail" placeholder={userData.user?.email} className="col-md-4 margin10"></input>
                     <button onClick={updateEmail} className="btn btn-info col-md-4 margin10">Change Email</button>
                 </div>
             </div>
