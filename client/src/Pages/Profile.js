@@ -87,11 +87,17 @@ export const Profile = (props) => {
     return (
         <form className="card">
             {/* <h1> hi from Profile</h1> */}
-            <h1 className="card-title"> Welcome: {userData.user?.displayName}</h1>
+            <div className="row justify-content-center card-title margin10">
+                <h1 className="col-md-12">Welcome: {userData.user?.displayName}</h1>
+                <button onClick={logout} className=" row btn btn-secondary col-md-6 margin10">Logout</button>
+            </div>
             <hr></hr>
             <div className="card-body">
-                <div className="row justify-content-center">
+                {/* <div className="row justify-content-center">
                     <button onClick={logout} className="btn btn-secondary col-md-6 margin10">Logout</button>
+                </div> */}
+                <div className="row justify-content-center">
+                    <img src="http://placekitten.com/200/300"></img>
                 </div>
                 <div className="row justify-content-center">
                     <button onClick={updatePhoto} className="btn btn-info col-md-4 margin10">Change Photo</button>
