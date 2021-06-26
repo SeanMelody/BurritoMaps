@@ -28,4 +28,5 @@ router.post("/login", login)
 router.put("/", updateUserName)
 // router.put("/", auth, updateUserName)
 
+// Export as router
 module.exports = router;

@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Burrito = require("./burritoModels")
 
+// Set the user Schema, email, password, displayName, confirmed
+// Need to add photo to the option
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -23,6 +25,7 @@ const userSchema = new mongoose.Schema({
     },
 })
 
+// Schema to delete all burritos when a user is deleted.
 userSchema.post("findOneAndDelete", async (user) => {
     console.log(user)
     try {
@@ -34,4 +37,5 @@ userSchema.post("findOneAndDelete", async (user) => {
 
 })
 
+// Export as user
 module.exports = User = mongoose.model("user", userSchema)

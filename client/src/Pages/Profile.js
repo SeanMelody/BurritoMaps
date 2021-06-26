@@ -1,3 +1,4 @@
+// Inport all the goodness
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom"
 import userContext from "../Context/UserContext"
@@ -6,7 +7,7 @@ import axios from 'axios'
 
 export const Profile = (props) => {
 
-
+    // All the necessary state and useHistory
     const [update, setUpdate] = useState()
 
     const onChange = (e) => {
@@ -17,11 +18,13 @@ export const Profile = (props) => {
 
     const history = useHistory()
 
+    // Logout function, sets the user data to undefined, and resets local storage.
     const logout = () => {
         setUserData({ token: undefined, user: undefined })
         localStorage.setItem("auth-token", "")
     }
 
+    // Use effect to make sure the user is signed in, and if not, then send to login
     useEffect(() => {
         if (!userData.user) {
             history.push("/login")
@@ -35,7 +38,7 @@ export const Profile = (props) => {
 
     }, [userData.user, history])
 
-
+    // Function to delete the user and all their posts
     const deleteUser = async () => {
 
         try {
@@ -50,11 +53,13 @@ export const Profile = (props) => {
         }
     }
 
+    // Update Photo Function, now just console logging
     const updatePhoto = (e) => {
         e.preventDefault()
         console.log("Update Photo")
     }
 
+    // Update username function, now just console logging
     const updateUserName = async (e) => {
         e.preventDefault()
         console.log("Update User Name")
@@ -77,6 +82,7 @@ export const Profile = (props) => {
         // }
     }
 
+    // Update Email Function, now just console logging
     const updateEmail = (e) => {
         e.preventDefault()
         console.log("Update Email")
@@ -85,7 +91,7 @@ export const Profile = (props) => {
     }
 
     return (
-        <form className="card">
+        <div className="card">
             {/* <h1> hi from Profile</h1> */}
             <div className="row justify-content-center card-title margin10">
                 <h1 className="col-md-12">Welcome: {userData.user?.displayName}</h1>
@@ -120,7 +126,7 @@ export const Profile = (props) => {
                 </button>
             </Link> */}
             {/* <BurritoContainer /> */}
-        </form>
+        </div>
     )
 }
 
