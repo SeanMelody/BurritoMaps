@@ -16,17 +16,21 @@ import axios from 'axios';
 
 function App() {
 
+  // Set up UserData state
   const [userData, setUserData] = useState({
     user: undefined,
     token: undefined
   })
 
+  // Function to check if logged in via auth token
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token")
 
     if (token === null) {
       localStorage.setItem("auth-token", "")
     }
+
+    // If no auth token, call the database and set the userData
     else {
       try {
         const userRes = await axios.get("/users", {
@@ -39,16 +43,13 @@ function App() {
     }
   }
 
-  // const logout = () => {
-  //   setUserData({ token: undefined, user: undefined })
-  //   localStorage.setItem("auth-token", "")
-  // }
-
-
+  // Use effect to check if logged in on page load
   useEffect(() => {
     checkLoggedIn()
   }, [])
 
+
+  // Styles for the buttons in the navbar
   let loginLogoutStyles = {
     height: "30px",
     float: "around",
@@ -57,6 +58,7 @@ function App() {
     margin: "10px",
   }
 
+  // Return the whole app
   return (
     <div className="App">
       <Router>
@@ -104,16 +106,11 @@ function App() {
                   Profile
                 </button>
               </Link>
-              {/* <Link to="/" onClick={logout} style={loginLogoutStyles}>
-                <button className="btn btn-outline-danger">
-                  Logout
-                </button>
-              </Link> */}
             </nav>
           </>
         }
+        {/* User context to make sure the user is lgged in */}
         <UserContext.Provider value={{ userData, setUserData }} >
-          {/* <Nav /> */}
           <Switch>
             <Route path="/clusters" component={Clusters} />
             <Route path="/login" component={Login} />
@@ -131,4 +128,5 @@ function App() {
   );
 }
 
+// Export the app
 export default App;

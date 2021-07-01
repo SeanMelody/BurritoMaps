@@ -103,7 +103,7 @@ export const Profile = (props) => {
                     <button onClick={logout} className="btn btn-secondary col-md-6 margin10">Logout</button>
                 </div> */}
                 <div className="row justify-content-center">
-                    <img src="http://placekitten.com/200/300"></img>
+                    <img src="http://placekitten.com/200/300" alt="profile"></img>
                 </div>
                 <div className="row justify-content-center">
                     <button onClick={updatePhoto} className="btn btn-info col-md-4 margin10">Change Photo</button>
@@ -120,12 +120,6 @@ export const Profile = (props) => {
             <div className="card-footer">
                 <button onClick={deleteUser} className="btn btn-danger">Delete Your Account</button>
             </div>
-            {/* <Link to="/" onClick={logout} style={loginLogoutStyles}>
-                <button className="btn btn-outline-danger">
-                    Logout
-                </button>
-            </Link> */}
-            {/* <BurritoContainer /> */}
         </div>
     )
 }

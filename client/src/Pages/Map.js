@@ -154,8 +154,8 @@ const Map = () => {
                             // className="event-pin"
                             latitude={burrito.location[0].latitude}
                             longitude={burrito.location[0].longitude}
-                            offsetTop={-20}
-                            offsetLeft={-10}
+                        // offsetTop={-20}
+                        // offsetLeft={-10}
                         >
                             {/* <div>{burrito.restaurant}</div> */}
                             <Pins />
