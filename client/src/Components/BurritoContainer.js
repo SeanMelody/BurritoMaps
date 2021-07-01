@@ -98,9 +98,7 @@ const BurritoContainer = () => {
     return (
         <div className="container justify-content-center">
             <ToastContainer />
-            {/* <h1>Hello from Burrito Container</h1> */}
             <form onSubmit={saveBurrito}>
-                {/* <input onChange={onChange} type="text" name="restaurant" placeholder="restaurant" className="row col-md-10 margin10 form-control" /> */}
                 <select onChange={onChange} name="restaurant" className="row col-md-10 margin10 form-control" >
                     <option value="">--Select a Restaurant--</option>
                     <option value="El Burrito Express Uno">El Burrito Express Uno</option>

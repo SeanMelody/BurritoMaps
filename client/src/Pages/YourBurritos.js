@@ -49,11 +49,11 @@ const YourBurritos = () => {
 
     return (
 
-        <div className="allBurritos container">
+        <div className="allBurritos container justify-content-center marginTop">
             <h1>Your Burritos</h1>
 
             {burritos.length ? (
-                <div className="table-responsive">
+                <div className="table-responsive margin10">
                     <table className="table table-striped text-center table-hover">
                         <thead>
                             <tr>

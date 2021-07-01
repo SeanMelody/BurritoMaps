@@ -59,7 +59,7 @@ const Login = () => {
                 <input onChange={onChange} type="text" name="email" className="row col-md-12"></input>
                 <h3 className="col-md-12">Password:</h3>
                 <input onChange={onChange} type="password" name="password" className="row col-md-12"></input>
-                <input type="submit" className="btn btn-secondary margin10" />
+                <button type="submit" className="btn btn-secondary margin10">Submit</button>
             </form>
         </div >
     )
