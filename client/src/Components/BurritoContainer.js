@@ -65,15 +65,35 @@ const BurritoContainer = () => {
     if (form.restaurant === "El Faralito") {
         form.location = [{ latitude: 37.75263, longitude: -122.41833 }]
     }
-    if (form.restaurant === "Papolote") {
+    if (form.restaurant === "Papalote") {
         form.location = [{ latitude: 37.77575, longitude: -122.44598 }]
     }
+    if (form.restaurant === "Taqueria Los Coyotes") {
+        form.location = [{ latitude: 37.76515, longitude: -122.42042 }]
+    }
+    if (form.restaurant === "Pancho Villa Taqueria") {
+        form.location = [{ latitude: 37.76483, longitude: -122.42115 }]
+    }
+    if (form.restaurant === "Taqueria La Cumbre") {
+        form.location = [{ latitude: 37.76458, longitude: -122.42165 }]
+    }
+
+    if (form.restaurant === "El Castillito") {
+        form.location = [{ latitude: 37.76876, longitude: -122.42931 }]
+    }
+
+    if (form.restaurant === "El Faro") {
+        form.location = [{ latitude: 37.75906, longitude: -122.41452 }]
+    }
+
+    if (form.restaurant === "Taqueria Cancun") {
+        form.location = [{ latitude: 37.76049, longitude: -122.41942 }]
+    }
+
     if (form.restaurant === "Another") {
         form.location = [{ latitude: 37.7000, longitude: -122.48000 }]
     }
-    if (form.restaurant === "Another") {
-        form.location = [{ latitude: 37.7000, longitude: -122.48000 }]
-    }
+
 
     return (
         <div className="container justify-content-center">
@@ -88,7 +108,12 @@ const BurritoContainer = () => {
                     <option value="La Taqueria">La Taqueria</option>
                     <option value="El Faralito">El Faralito</option>
                     <option value="Papolote">Papalote</option>
-                    <option value="Another">Another</option>
+                    <option value="Taqueria Los Coyotes">Taqueria Los Coyotes</option>
+                    <option value="Pancho Villa Taqueria">Pancho Villa Taqueria</option>
+                    <option value="Taqueria La Cumbre">Taqueria La Cumbre</option>
+                    <option value="El Castillito">El Castillito Church Street</option>
+                    <option value="El Faro">El Faro</option>
+                    <option value="Taqueria Cancun">Taqueria Cancun</option>
                     <option value="Another">Another</option>
                 </select>
                 <input onChange={onChange} type="text" name="burrito" placeholder="type of burrito (ex. Chicken, Carne Asada, Beans & Rice)" className="row col-md-10 margin10 form-control" />
